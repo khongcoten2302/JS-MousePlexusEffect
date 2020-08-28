@@ -80,6 +80,9 @@ function Draw() {
             if(points[i+1] < -maxY)
                 points[i+1] = 2 *maxY + points[i+1];
 
+            let DeltaX = (1 - Math.abs( points[i] / maxX ));
+            let DeltaY = (1 - Math.abs( points[i+1] / maxY ));
+            ctx.globalAlpha = Math.min(DeltaX, DeltaY);
             ctx.moveTo(mousePos.x, mousePos.y);
             ctx.lineTo(mousePos.x + points[i], mousePos.y + points[i+1]);
             ctx.stroke();
